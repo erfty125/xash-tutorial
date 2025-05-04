@@ -1,12 +1,130 @@
-<!DOCTYPE html>
 <html>
-  <head> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <head>
+    <title>xash-tutorial</title>
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+  <style>
+body {
+  background-color: #aeb6bf;
+}
+
+h1 {
+font-family: "Lucida Console", "Courier New", monospace;
+  color: black;
+  text-align: center;
+}
+h2 {
+font-family: "Lucida Console", "Courier New", monospace;
+  color: #1c0300;
+}
+
+h3 {
+font-family: "Lucida Console", "Courier New", monospace;
+  color: #1c0300;
+}
+
+
+p {
+font-family: "Lucida Console", "Courier New", monospace;
+font-size: 20px;  
+}
+video { height: 80%; width: 100%; }
+code{
+    background-color: #a4a6a5;
+    border: 1px solid black;
+    display: block;
+    word-wrap: break-word;
+    color: #470139;
+}
+</style>
   </head>
-<body>
+  <body>
+    <h1>Руководство по ксашу</h1>
+<h2>Установка и настройка</h2>
+    <a href="#1">Загрузка ресурсов из стим с телефона<br></a>
+    <a href="#2">Скачивание ксаша и кс клиента<br></a>
+    <a href="#3">Установка файлов<br></a>
+<h2>Часто задаваемые вопросы</h2>
+ <a href="#4">Как сделать разрешение 4:3?<br></a>
+ <a href="#5">Нет серверов<br></a>
+ <a href="#6">Как зайти на пк сервера хл/кс<br></a>
+ <a href="#7">Почему нужно обновить ксаш и кс<br></a>
+ <a href="#8">Как поменять конфиги<br></a>
+<h2>Полезно почитать</h2>
+ <a href="#9">Что такое xash 3d FWGS<br></a>
 
-<p>туториал типо</p>
-<p>sample text aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+<h3 id="1">Загрузка ресурсов из стим с телефона</h3>
+<p>Для того чтобы поиграть в кс или халф лайф нужны файлы игр, поэтому соответственно они
+должны быть куплены у вас в стиме(если же нет, можете дальше не читать и не бежать плакать в чат о том что мамка вам денег на игры не дала).
+Нужно скачать приложение стим из гугл плей для входа в аккаунт и подтверждения личности(и сразу после загрузки войти в аккаунт),
+ а также приложение termux для непосредственной загрузки ресурсов из стим
+(загружать
+<a href="https://github.com/termux/termux-app/releases/download/v0.119.0-beta.2/termux-app_v0.119.0-beta.2+apt-android-7-github-debug_universal.apk">отсюда</a>(с плей маркета termux скачивать нельзя, ибо скрипт не заработает)).
+Теперь нужно скопировать текст в рамке, открыть термукс, вставить текст и нажать enter, дальше подождать пока скрипт выполнится </p>
+<code>
+curl -LO "https://raw.githubusercontent.com/TheKingFireS/TermuxDepotDownloader/alpine/installproot.sh"
+chmod +x installproot.sh
+./installproot.sh
+curl -LO "https://raw.githubusercontent.com/TheKingFireS/TermuxDepotDownloader/alpine/depotdownloader.sh"
+chmod +x depotdownloader.sh
+</code>
+<p>Дождались выполнения скрипта? Тогда копируйте текст в рамке ниже, открываете termux, вставляете текст,
+заменяете слово pinkman на свой ник в стиме, а funnypassword на свой пароль(если вам нужно скачать хл а не кс1.6, то заменяете число 10 на 70 и число 11 на 1 соответственно)  и нажимайте enter
+</p>
+<code>
+./depotdownloader.sh -username pinkman -password funnypassword -app 10 -depot 11 -validate
+</code>
+<p>
+Далее будет текст вроде "STEAM GUARD! Use your steam mobile app to confirm your sign in...",
+ тогда нужно войти в приложение стим и высветится окно в подтвердением, нажимаем подтвердить. Обратно заходим в termux и дожидаемся загрузки ресурсов. Всё, теперь у нас есть файлы игры на телефоне в папке Download/depotdownloaded 
+</p>
+ <video width "320px" height "960px" controls="controls" autoplay muted>
+  <source src="r1.mp4" type="video/mp4">
+Ваш браузер не поддерживает видева</video> 
 
-</body>
+<h3 id="2">Скачивание ксаша и кс клиента</h3>
+<p>Нам нужно скачать два апк файла(один это ксаш, а второй это кс клиент) и установить их. Скачиваем кс клиент
+<a href="https://github.com/Velaron/cs16-client/releases/download/continuous/CS16Client-Android.apk">отсюда</a>, а ксаш <a href="https://github.com/FWGS/xash3d-fwgs/releases/download/continuous/xash3d-fwgs-android.apk">отсюда</a>, и устанавливаем их.
+</p>
+
+<h3 id="3">Установка файлов</h3>
+<p>Для того чтобы ксаш и кс клиент "увидели" файлы игры нам нужно переместить их
+ в определённую папку. Я рекомендую перед следущими шагами скачать zarchiver из гугл плея для комфортной работы.
+Теперь открываем zarchiver(или если хотите другой файловый менеджер), заходим в папку Download, там будет папка depotdownloaded. Заходим в неё, потом заходим в папку depots,
+видим папку с названием "10" (или же 70 если вы скачивали хл), заходим в неё и заходим в папку котрая в ней. Далее мы должны увидеть папки cstrike и valve. Копируем эти папки и вставляем их по пути Android/data/su.xash.engine.test/files (если папок su.xash.engine.test или files нет, просто создаём их)
+</p>
+<video width "320px" height "960px" controls="controls" autoplay muted>
+  <source src="r5.mp4" type="video/mp4">
+Ваш браузер не поддерживает видева</video>
+
+<h3 id="#4">Как сделать разрешение 4:3?</h3>
+<p>Данная функция пока находится в процессе разработки</p> 
+<h3 id="#5">Нет серверов</h3>
+<p>В первую очередь это из-за того, что вы используете старую версию движка xash3d fwgs, обновите движок и cs 1.6 клиент до последней версии
+Проблема может быть из-за vpn
+</p> 
+ <h3 id="#6">Как зайти на пк сервера хл/кс</h3>
+<p>Вы можете найти сервера goldsrc серсии на сайтах
+для кс  
+<a href="https://tsarvar.com/ru/servers/counter-strike-1.6">тут</a>
+для хл  
+<a href="https://tsarvar.com/ru/servers/half-life">тут</a>
+Прежде всего сервер должен быть без VAC(античита от valve)
+Нужно написать в консоль команду
+<code>connect ip:port gs</code>
+ip и port заменить на соответствующие айпи и порт сервера
+пример:
+<code>connect 1.1.1.1:27015 gs</code>
+</p> 
+ <h3 id="#7">Почему нужно обновить ксаш и кс</h3>
+<p>В новой версии xash 3d fwgs были пофикшены многие баги, был доработан сетевой код игры а также добавленная поддержка серверов пк версии хл и кс</p> 
+ <h3 id="8">Как поменять конфиги</h3>
+<p>Конфиг файлы находятся в папке Android/data/su.xash.engine.test/files/cstrike (или же valve)
+Их можно отредактировать в вашем любимом текстовом редакторе</p> 
+
+<h3 id="#9">Что такое xash 3d FWGS</h3>
+<p>Xash 3d fwgs это движок(не эмулятор), который совместим с движком goldsrc и может запустить такие игры как half life, cs1.6 и team fortress classic </p>
+
+
+
+  </body>
 </html>
